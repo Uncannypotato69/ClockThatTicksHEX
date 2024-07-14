@@ -1,0 +1,103 @@
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.background{
+    height: 100vh;
+    width: 100vw;
+    background-color: honeydew;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text{
+    font-size: 3rem;
+    color: honeydew;
+    font-family: "Space Mono";
+    font-weight: 200;
+    letter-spacing: 0.5rem;
+    cursor: default;
+}
+
+.cursor1{
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    height: 0.5rem;
+    aspect-ratio: 1/1;
+    background-color: #6F00FF;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition-duration: 50ms;
+    transition-timing-function: ease-out;
+}
+
+.cursor2{
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    height: 2rem;
+    aspect-ratio: 1/1;
+    border: 2px solid white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
+}
+
+.cursor2.hovered{
+    height: 1.5rem;
+}
+
+.credit{
+    position: absolute;
+    left: 2rem;
+    bottom: 2rem;
+    font-family: "Space Mono";
+    color: honeydew;
+    cursor: default;
+}
+
+.link {
+    text-decoration: none;
+    color: honeydew;
+    font-weight: bold;
+    position: relative;
+}
+
+.link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 0.1rem;
+    width: 100%;
+    background-color: honeydew;
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 300ms, opacity 300ms;
+}
+
+.link:hover::after {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .cursor1, .cursor2{
+      display: block;
+    }
+  }
+

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="input.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="background">
+      <div class="cursor1"></div>
+      <div class="cursor2"></div>
+      <p class="text">#000000</p>
+      <p class="credit">
+        Original Creator (probably)
+        <a class="link" href="https://www.jacopocolo.com/">Jacopocolo</a>
+      </p>
+    </section>
+
+    <script>
+      const cursor1 = document.querySelector(".cursor1");
+      const cursor2 = document.querySelector(".cursor2");
+      const link = document.querySelector(".link");
+
+      document.addEventListener("mousemove", (e) => {
+        cursor1.setAttribute(
+          "style",
+          `top: ${e.clientY}px; left: ${e.clientX}px;`
+        );
+        cursor2.setAttribute(
+          "style",
+          `top: ${e.clientY}px; left: ${e.clientX}px;`
+        );
+      });
+
+      link.addEventListener("mouseenter", () => {
+        cursor2.classList.add("hovered");
+      });
+
+      link.addEventListener("mouseleave", () => {
+        cursor2.classList.remove("hovered");
+      });
+
+      function changeColor() {
+        const background = document.querySelector(".background");
+        const text = document.querySelector(".text");
+
+        x = 1;
+
+        var d = new Date();
+        var h = d.getHours();
+        var m = d.getMinutes();
+        var s = d.getSeconds();
+
+        if (h <= 9) {
+          h = "0" + h;
+        }
+        if (m <= 9) {
+          m = "0" + m;
+        }
+        if (s <= 9) {
+          s = "0" + s;
+        }
+
+        var color = "#" + h + m + s;
+
+        background.style.backgroundColor = color;
+        text.textContent = color;
+
+        setTimeout(changeColor, x * 1000);
+      }
+      changeColor();
+    </script>
+  </body>
+</html>
