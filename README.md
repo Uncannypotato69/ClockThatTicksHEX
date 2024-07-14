@@ -1,0 +1,1 @@
+ClockThatTicksHEX is a clock that ticks hex codes, (seriously what other thing could you expect?). It is inspired (blatantly copied) by the Hex Clock by Jacopocolo https://github.com/jacopocolo/Hex-clock.
